@@ -17,5 +17,9 @@ public class StreamUtils {
 		out.close();
 		return out.toString();
 	}
+	
+	public void what() {
+		System.out.println("cnm");
+	}
 
 }
