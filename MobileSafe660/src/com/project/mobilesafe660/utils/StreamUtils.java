@@ -20,6 +20,7 @@ public class StreamUtils {
 	
 	public void what() {
 		System.out.println("cnm");
+		System.out.println("社么我就试一下?!!");
 	}
 
 }
