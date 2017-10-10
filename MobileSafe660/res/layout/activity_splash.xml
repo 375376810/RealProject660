@@ -2,7 +2,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/launcher_bg" >
+    android:background="@drawable/launcher_bg" 
+    android:id="@+id/rl_root"
+    >
 
     <TextView
         android:id="@+id/tv_name"
@@ -13,10 +15,6 @@
         android:textColor="@android:color/black"
         android:textSize="18sp"
         android:text="版本号:1.0"
-        android:shadowColor="#f00"
-        android:shadowDx="1"
-        android:shadowDy="1"
-        android:shadowRadius="8"
          />
 
     <ProgressBar
@@ -26,5 +24,17 @@
         android:layout_below="@+id/tv_name"
         android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tv_progress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:text="下载进度"
+        android:textSize="16sp"
+        android:textColor="@android:color/holo_orange_light"
+        android:visibility="invisible"
+         />
 
 </RelativeLayout>
