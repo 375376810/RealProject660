@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 public class StreamUtils {
-	
+	/** 将流数据转换为String **/
 	public static String streamToString(InputStream in) throws IOException {
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		byte[] buffer = new byte[1024];
