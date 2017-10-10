@@ -104,8 +104,9 @@ public class SplashActivity extends Activity {
 			public void run() {
 				Message message = Message.obtain();
 				long timeStart = System.currentTimeMillis();
+				HttpURLConnection connection = null;
 				try {
-					HttpURLConnection connection = (HttpURLConnection) new URL("http://10.0.2.2:8080/update.json").openConnection();
+					connection = (HttpURLConnection) new URL("http://10.0.2.2:8080/update.json").openConnection();
 					connection.setConnectTimeout(2000);
 					connection.setReadTimeout(2000);
 					connection.setRequestMethod("GET");
@@ -154,6 +155,9 @@ public class SplashActivity extends Activity {
 						}
 					} catch (InterruptedException e) {
 						e.printStackTrace();
+					}
+					if (connection!=null) {
+						connection.disconnect();
 					}
 					mHandler.sendMessage(message);
 				}
