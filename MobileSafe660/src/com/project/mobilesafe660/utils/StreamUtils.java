@@ -4,8 +4,12 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
+/***
+ * 工具类
+ * @author 袁星明
+ */
 public class StreamUtils {
-	/** 灏嗘祦鏁版嵁杞崲涓篠tring **/
+	/** 将流数据转换为String **/
 	public static String streamToString(InputStream in) throws IOException {
 		ByteArrayOutputStream out = new ByteArrayOutputStream();
 		byte[] buffer = new byte[1024];
