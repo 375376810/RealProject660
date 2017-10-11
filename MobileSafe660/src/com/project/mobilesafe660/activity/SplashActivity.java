@@ -16,6 +16,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
@@ -35,6 +36,7 @@ import com.lidroid.xutils.exception.HttpException;
 import com.lidroid.xutils.http.ResponseInfo;
 import com.lidroid.xutils.http.callback.RequestCallBack;
 import com.project.mobilesafe660.R;
+import com.project.mobilesafe660.utils.PrefUtils;
 import com.project.mobilesafe660.utils.StreamUtils;
 
 /***
@@ -90,8 +92,15 @@ public class SplashActivity extends Activity {
 		tvName.setText("版本名:" + getVersionName());
 		tvProgress = (TextView)findViewById(R.id.tv_progress);
 		rlRoot = (RelativeLayout) findViewById(R.id.rl_root);
-		checkVersionName();
-		//设置闪屏界面简便效果
+		//SharedPreferences sp = getSharedPreferences("config", MODE_PRIVATE);
+		boolean autoUpdate = PrefUtils.getBoolean("auto_update", true,this);
+		if (autoUpdate) {
+			//需要更新才检查服务器更新
+			checkVersionName();			
+		} else {
+			mHandler.sendEmptyMessageDelayed(CODE_ENTER_HOME, 2000);
+		}
+		//设置闪屏界面渐进变色效果
 		AlphaAnimation animation = new AlphaAnimation(0.2f,1);
 		animation.setDuration(2000);
 		rlRoot.startAnimation(animation);

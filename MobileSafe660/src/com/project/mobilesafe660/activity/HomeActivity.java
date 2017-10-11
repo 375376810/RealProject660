@@ -3,9 +3,14 @@ package com.project.mobilesafe660.activity;
 import com.project.mobilesafe660.R;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -33,8 +38,39 @@ public class HomeActivity extends Activity {
 		setContentView(R.layout.activity_home);
 		gvHome = (GridView) findViewById(R.id.gv_home);
 		gvHome.setAdapter(new HomeAdapter());
+		gvHome.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+				switch (position) {
+				case 0:
+					//手机防盗
+					showSafeDialog();
+					break;
+				case 8:
+					//设置中心
+					startActivity(new Intent(getApplicationContext(),SettingsActivity.class));
+					break;
+
+				default:
+					break;
+				}
+			}
+			
+		});
 	}
 	
+	/** 手机防盗弹窗 **/
+	protected void showSafeDialog() {
+		showSetPwdDialog();
+	}
+
+	/** 设置密码弹窗 **/
+	private void showSetPwdDialog() {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		AlertDialog dialog = builder.create();
+		//dialog.setView(view);
+	}
+
 	class HomeAdapter extends BaseAdapter {
 		@Override
 		public int getCount() {
