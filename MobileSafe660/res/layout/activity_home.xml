@@ -6,7 +6,25 @@
 
     <TextView
         style="@style/TitleStyle"
-        android:text="功能列表"
-         />
+        android:text="功能列表" />
+    
+    <TextView 
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="手机卫士,您手机的贴身好管家,可以防火防盗防狼,功能强大,效果显著,终身免费,您值得拥有"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:singleLine="true"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:ellipsize="marquee"
+        />
+
+    <GridView
+        android:id="@+id/gv_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="3"
+        android:verticalSpacing="15dp" />
 
 </LinearLayout>
