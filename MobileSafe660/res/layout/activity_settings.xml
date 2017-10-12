@@ -1,0 +1,23 @@
+<!-- 自定义的命名空间 -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:project="http://schemas.android.com/apk/res/com.project.mobilesafe660"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textView1"
+        style="@style/TitleStyle"
+        android:text="设置中心" />
+
+    <com.project.mobilesafe660.view.SettingItemView 
+        android:id="@+id/siv_update"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        project:desc_off="自动更新已关闭"
+        project:desc_on="自动更新已开启"
+        project:title="自动更新设置"
+        />
+
+</LinearLayout>
