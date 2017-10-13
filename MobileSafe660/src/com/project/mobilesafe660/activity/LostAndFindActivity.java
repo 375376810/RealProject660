@@ -3,6 +3,7 @@ package com.project.mobilesafe660.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import com.project.mobilesafe660.R;
 import com.project.mobilesafe660.utils.PrefUtils;
@@ -26,4 +27,11 @@ public class LostAndFindActivity extends Activity {
 			setContentView(R.layout.activity_lost_and_find);
 		}
 	}
+	
+	/** 重新进入向导页面点击事件 **/
+	public void reSetup(View view) {
+		startActivity(new Intent(this, Setup1Activity.class));
+		finish();
+	}
+	
 }

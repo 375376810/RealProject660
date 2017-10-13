@@ -19,7 +19,7 @@
         android:text="下次重启手机发现sim卡变化\n就会发送报警短信" />
 
     <com.project.mobilesafe660.view.SettingItemView
-        android:id="@+id/siv_update"
+        android:id="@+id/siv_bind"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         project:desc_off="sim卡未绑定"
