@@ -4,6 +4,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.project.mobilesafe660.R;
 import com.project.mobilesafe660.utils.PrefUtils;
@@ -25,6 +27,16 @@ public class LostAndFindActivity extends Activity {
 			finish();
 		}else {
 			setContentView(R.layout.activity_lost_and_find);
+			TextView tvSafePhone = (TextView) findViewById(R.id.tv_safe_phone);
+			ImageView ivLock = (ImageView) findViewById(R.id.iv_lock);
+			String safePhone = PrefUtils.getString("safe_phone", "", this);
+			tvSafePhone.setText(safePhone);
+			boolean protect = PrefUtils.getBoolean("protect", false, this);
+			if (protect) {
+				ivLock.setImageResource(R.drawable.lock);
+			} else {
+				ivLock.setImageResource(R.drawable.unlock);
+			}
 		}
 	}
 	

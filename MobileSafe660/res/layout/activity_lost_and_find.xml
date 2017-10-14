@@ -17,7 +17,7 @@
             style="@style/ContentStyle"
             android:layout_alignParentLeft="true"
             android:layout_alignParentTop="true"
-            android:text="安全号吗" />
+            android:text="安全号码" />
 
         <TextView
             android:id="@+id/tv_safe_phone"
@@ -26,7 +26,7 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="5dp"
-            android:text="110"
+            android:text=""
             android:textColor="#000"
             android:textSize="16sp" />
     </RelativeLayout>

@@ -2,6 +2,9 @@ package com.project.mobilesafe660.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 
 import com.project.mobilesafe660.R;
 import com.project.mobilesafe660.utils.PrefUtils;
@@ -13,10 +16,33 @@ import com.project.mobilesafe660.utils.PrefUtils;
  */
 public class Setup4Activity extends BaseSetupActivity {
 
+	private CheckBox cbProtect;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_setup4);
+		cbProtect = (CheckBox) findViewById(R.id.cb_protect);
+		Boolean protect = PrefUtils.getBoolean("protect", false, this);
+		if (protect) {
+			cbProtect.setChecked(true);
+			cbProtect.setText("防盗保护已经开启");
+		} else {
+			cbProtect.setChecked(false);
+			cbProtect.setText("您没有开启防盗保护");
+		}
+		cbProtect.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+			@Override
+			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+				if (isChecked) {
+					cbProtect.setText("防盗保护已经开启");
+					PrefUtils.putBoolean("protect", true, getApplicationContext());
+				} else {
+					cbProtect.setText("您没有开启防盗保护");
+					PrefUtils.putBoolean("protect", false, getApplicationContext());
+				}
+			}
+		});
 	}
 
 	/** 上一页 **/
