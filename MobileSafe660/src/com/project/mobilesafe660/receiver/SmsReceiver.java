@@ -1,6 +1,7 @@
-package receiver;
+package com.project.mobilesafe660.receiver;
 
 import com.project.mobilesafe660.R;
+import com.project.mobilesafe660.service.LocationService;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -47,6 +48,20 @@ public class SmsReceiver extends BroadcastReceiver {
 				//所以操作数据库,直接删除数据库相关短信内容,间接拦截短信.
 			} else if("*#location#*".equals(messageBody)){
 				System.out.println("手机定位");
+				//启动位置监听服务
+				context.startService(new Intent(context, LocationService.class));
+				//中断短信传递广播
+				abortBroadcast();
+			} else if("*#lockscreen#*".equals(messageBody)){
+				System.out.println("一键锁屏");
+				//TODO
+				//中断短信传递广播
+				abortBroadcast();
+			}
+			else if("*#wipedata#*".equals(messageBody)){
+				System.out.println("清除数据");
+				//TODO
+				//中断短信传递广播
 				abortBroadcast();
 			}
 		}

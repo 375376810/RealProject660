@@ -1,6 +1,7 @@
 package com.project.mobilesafe660.activity;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -20,6 +21,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.AssetManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -104,6 +106,8 @@ public class SplashActivity extends Activity {
 		AlphaAnimation animation = new AlphaAnimation(0.2f,1);
 		animation.setDuration(2000);
 		rlRoot.startAnimation(animation);
+		//拷贝归属地db
+		copyDb("address.db");
 	}
 
 	/** 检查服务器版本信息 **/
@@ -288,4 +292,38 @@ public class SplashActivity extends Activity {
 		enterHome();
 	}
 
+	/** 将address.db文件拷贝至 data/data/目录 **/
+	private void copyDb(String DbName) {
+		InputStream in = null;
+		FileOutputStream out = null;
+		//data/data包名
+		File filesDir = getFilesDir();
+		File targetFile = new File(filesDir,DbName);
+		//先判断文件是否已存在
+		if (targetFile.exists()) {
+			System.out.println("数据库"+DbName+"已经存在,无需拷贝");
+			return;
+		}
+		try {
+			AssetManager assets = getAssets();
+			in = assets.open(DbName);
+			out = new FileOutputStream(targetFile);
+			int len = 0;
+			byte[] buffer = new byte[1024];
+			while ((len = in.read(buffer))!=-1) {
+				out.write(buffer);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				out.close();
+				in.close();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		System.out.println("成功将"+DbName+"文件拷贝至data/data目录");
+	}
+	
 }

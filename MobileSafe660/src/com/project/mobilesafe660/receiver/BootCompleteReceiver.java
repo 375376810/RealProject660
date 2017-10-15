@@ -1,4 +1,4 @@
-package receiver;
+package com.project.mobilesafe660.receiver;
 
 import com.project.mobilesafe660.utils.PrefUtils;
 

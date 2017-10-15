@@ -12,9 +12,12 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-    <uses-permission android:name="android.permission.READ_CONTACTS"/>
-    <uses-permission android:name="android.permission.SEND_SMS"/>
-    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -39,28 +42,39 @@
             android:name=".activity.LostAndFindActivity"
             android:label="@string/title_activity_lost_and_find" >
         </activity>
-        <activity android:name="com.project.mobilesafe660.activity.Setup1Activity" >
+        <activity android:name=".activity.Setup1Activity" >
         </activity>
-        <activity android:name="com.project.mobilesafe660.activity.Setup2Activity" >
+        <activity android:name=".activity.Setup2Activity" >
         </activity>
-        <activity android:name="com.project.mobilesafe660.activity.Setup3Activity" >
+        <activity android:name=".activity.Setup3Activity" >
         </activity>
-        <activity android:name="com.project.mobilesafe660.activity.Setup4Activity" >
+        <activity android:name=".activity.Setup4Activity" >
         </activity>
-        <activity android:name="com.project.mobilesafe660.activity.ContactActivity" >
+        <activity android:name=".activity.ContactActivity" >
         </activity>
 
-        <receiver android:name="receiver.BootCompleteReceiver" >
+        <receiver android:name="com.project.mobilesafe660.receiver.BootCompleteReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="receiver.SmsReceiver" >
-            <intent-filter
-                android:priority="2147483647">
+        <receiver android:name="com.project.mobilesafe660.receiver.SmsReceiver" >
+            <intent-filter android:priority="2147483647" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
+
+        <service android:name=".service.LocationService" >
+        </service>
+
+        <activity
+            android:name=".activity.AdvancedToolsActivity"
+            android:label="@string/title_activity_advanced_tools" >
+        </activity>
+        <activity
+            android:name="com.project.mobilesafe660.activity.AdressQueryActivity"
+            android:label="@string/title_activity_adress_query" >
+        </activity>
     </application>
 
 </manifest>
