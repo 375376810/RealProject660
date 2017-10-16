@@ -9,13 +9,88 @@
         style="@style/TitleStyle"
         android:text="4.恭喜您设置完成" />
 
-    <CheckBox 
+    <CheckBox
         android:id="@+id/cb_protect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="您没有开启防盗保护"
+        android:text="您没有开启防盗保护" />
+
+    <TextView
+        style="@style/ContentStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="激活最高管理员权限"
+        android:textColor="#000"
+        android:textSize="16sp" />
+
+    <TextView
+        style="@style/ContentStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="激活后将得到对手机的最高管理权限"
+        android:textColor="#000"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/bt_active_SuperAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_light_green_selector"
+        android:onClick="activeSuperAdmin"
+        android:text="一键激活" />
+
+    <Button
+        android:id="@+id/bt_uninstal_SuperAdmin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/btn_light_green_selector"
+        android:onClick="uninstalSuperAdmin"
+        android:text="取消激活" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left" >
+
+        <TextView
+            android:id="@+id/tv_state_superAdmin"
+            style="@style/ContentStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="未激活"
+            android:textColor="#a000" />
+
+        <ImageView
+            android:id="@+id/iv_state_superAdmin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/tv_state_superAdmin"
+            android:paddingLeft="3dp"
+            android:paddingTop="3dp"
+            android:src="@drawable/activate_state_off" />
+    </RelativeLayout>
+
+    <TextView
+        style="@style/ContentStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="输入一键锁屏密码,一键锁屏后使用新密码解锁屏幕"
+        android:textColor="#000"
+        android:textSize="13sp" />
+
+    <EditText
+        android:id="@+id/et_lockPassword"
+        style="@style/ContentStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" 
+        android:hint="一键锁屏密码,只支持数字"
+        android:inputType="number"
+         android:textColor="#000"
+        android:textSize="13sp"
         />
-   
+    
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,14 +133,11 @@
 
         <Button
             style="@style/NextStyle"
-            android:text="设置完成"
-            />
+            android:text="设置完成" />
 
         <Button
             android:id="@+id/button2"
-            style="@style/PreviousStyle"
-            />
-
+            style="@style/PreviousStyle" />
     </RelativeLayout>
 
 </LinearLayout>

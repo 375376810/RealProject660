@@ -52,6 +52,14 @@
         </activity>
         <activity android:name=".activity.ContactActivity" >
         </activity>
+        <activity
+            android:name=".activity.AdvancedToolsActivity"
+            android:label="@string/title_activity_advanced_tools" >
+        </activity>
+        <activity
+            android:name="com.project.mobilesafe660.activity.AdressQueryActivity"
+            android:label="@string/title_activity_adress_query" >
+        </activity>
 
         <receiver android:name="com.project.mobilesafe660.receiver.BootCompleteReceiver" >
             <intent-filter>
@@ -67,14 +75,19 @@
         <service android:name=".service.LocationService" >
         </service>
 
-        <activity
-            android:name=".activity.AdvancedToolsActivity"
-            android:label="@string/title_activity_advanced_tools" >
-        </activity>
-        <activity
-            android:name="com.project.mobilesafe660.activity.AdressQueryActivity"
-            android:label="@string/title_activity_adress_query" >
-        </activity>
+        <receiver
+            android:name=".receiver.SuperAdminReceiver"
+            android:description="@string/device_admin_description"
+            android:label="@string/device_admin"
+            android:permission="android.permission.BIND_DEVICE_ADMIN" >
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_sample" />
+
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>

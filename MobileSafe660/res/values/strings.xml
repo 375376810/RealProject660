@@ -12,5 +12,7 @@
     <string name="title_activity_setup4">Setup4Activity</string>
     <string name="title_activity_advanced_tools">AdvancedToolsActivity</string>
     <string name="title_activity_adress_query">AdressQueryActivity</string>
+    <string name="device_admin_description">超级管理员描述文件,可以远程擦除数据,远程锁屏,非常牛X</string>
+    <string name="device_admin">超级管理员</string>
 
 </resources>
