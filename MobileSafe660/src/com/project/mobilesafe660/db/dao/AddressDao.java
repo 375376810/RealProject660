@@ -26,6 +26,45 @@ public class AddressDao {
 				address = cursor.getString(0);
 			}
 			cursor.close();
+		} else {
+			switch (number.length()) {
+			case 3:
+				address = "报警电话";
+				break;
+			case 4:
+				address = "模拟器";
+				break;
+			case 5:
+				address = "客服电话";
+				break;
+			case 7:
+				address = "";
+				break;
+			case 8:
+				address = "本地电话";
+				break;
+			default:
+				if (number.startsWith("0")&&number.length()>=11&&number.length()<=12) {
+					//有可能是长途电话
+					//先查询4位区号
+					Cursor cursor = database.rawQuery("select location from data2 where area = ?", new String[]{number.substring(1,4)});
+					if (cursor.moveToFirst()) {
+						//查到4位区号
+						address = cursor.getString(0);
+					}
+					cursor.close();
+					if ("未知号码".equals(address)) {
+						//没有查到4位区号,继续查3位区号
+						cursor = database.rawQuery("select location from data2 where area = ?", new String[]{number.substring(1,3)});
+						if (cursor.moveToFirst()) {
+							//查到3位区号
+							address = cursor.getString(0);
+						}
+						cursor.close();
+					}
+				}
+				break;
+			}
 		}
 		database.close();
 		return address;

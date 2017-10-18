@@ -19,5 +19,14 @@
         project:desc_on="自动更新已开启"
         project:title="自动更新设置"
         />
+    
+    <com.project.mobilesafe660.view.SettingItemView 
+        android:id="@+id/siv_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        project:desc_off="归属地显示已关闭"
+        project:desc_on="归属地显示已开启"
+        project:title="电话归属地显示设置"
+        />
 
 </LinearLayout>
