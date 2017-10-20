@@ -18,8 +18,9 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_MOCK_LOCATION" />
-    <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"/>
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:allowBackup="true"
@@ -59,16 +60,20 @@
             android:label="@string/title_activity_advanced_tools" >
         </activity>
         <activity
-            android:name="com.project.mobilesafe660.activity.AdressQueryActivity"
+            android:name=".activity.AdressQueryActivity"
             android:label="@string/title_activity_adress_query" >
         </activity>
+        <activity
+            android:name="com.project.mobilesafe660.activity.DragViewActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+        </activity>
 
-        <receiver android:name="com.project.mobilesafe660.receiver.BootCompleteReceiver" >
+        <receiver android:name=".receiver.BootCompleteReceiver" >
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        <receiver android:name="com.project.mobilesafe660.receiver.SmsReceiver" >
+        <receiver android:name=".receiver.SmsReceiver" >
             <intent-filter android:priority="2147483647" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>

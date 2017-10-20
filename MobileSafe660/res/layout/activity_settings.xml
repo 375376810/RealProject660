@@ -28,5 +28,16 @@
         project:desc_on="归属地显示已开启"
         project:title="电话归属地显示设置"
         />
+    
+    <com.project.mobilesafe660.view.SettingItemClickView 
+        android:id="@+id/sic_style"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 
+    <com.project.mobilesafe660.view.SettingItemClickView 
+        android:id="@+id/sic_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        />
 </LinearLayout>
