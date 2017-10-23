@@ -15,5 +15,6 @@
     <string name="device_admin_description">超级管理员描述文件,可以远程擦除数据,远程锁屏,非常牛X</string>
     <string name="device_admin">超级管理员</string>
     <string name="title_activity_drag_view">DragViewActivity</string>
+    <string name="title_activity_black_number">BlackNumberActivity</string>
 
 </resources>

@@ -2,8 +2,10 @@ package com.project.mobilesafe660.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.View.OnTouchListener;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -22,6 +24,7 @@ public class DragViewActivity extends Activity {
 	private int mScreenHeight;
 	private TextView tvTop;
 	private TextView tvBottom;
+	long[] mHits = new long[2];//数组长度就是多击次数
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -117,9 +120,24 @@ public class DragViewActivity extends Activity {
 				default:
 					break;
 				}
-				return true;
+				//return true;
+				return false;//当同时设置onTouch和onClick时,设为false可以保证这两个事件都响应.
 			}
 		});
+		
+		ivDrag.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				System.arraycopy(mHits, 1, mHits,0, mHits.length-1);
+				mHits[mHits.length-1] = SystemClock.uptimeMillis();//手机开机时间
+				if(SystemClock.uptimeMillis()-mHits[0]<500) {
+					//双击居中
+					ivDrag.layout(mScreenWidth/2-ivDrag.getWidth()/2, ivDrag.getTop(), mScreenWidth/2+ivDrag.getWidth()/2, ivDrag.getBottom());
+					
+				}
+			}
+		});
+		
 	}
 
 }
