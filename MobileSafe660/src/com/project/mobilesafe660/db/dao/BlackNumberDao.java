@@ -111,7 +111,7 @@ public class BlackNumberDao {
 	public ArrayList<BlackNumberInfo> findPart(int index) {
 		SQLiteDatabase database = mHelper.getWritableDatabase();
 		//分页查询20条数据
-		Cursor cursor = database.rawQuery("select number, mode from blacknumber limit ?,20", new String[]{index+""});
+		Cursor cursor = database.rawQuery("select number, mode from blacknumber order by _id desc limit ?,20", new String[]{index+""});
 		
 		ArrayList<BlackNumberInfo> list = new ArrayList<BlackNumberInfo>();
 		while (cursor.moveToNext()) {

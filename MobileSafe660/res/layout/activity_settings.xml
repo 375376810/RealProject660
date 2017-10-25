@@ -40,4 +40,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         />
+     <com.project.mobilesafe660.view.SettingItemView 
+        android:id="@+id/siv_black_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        project:desc_off="黑名单拦截已经关闭"
+        project:desc_on="黑名单拦截已经开启"
+        project:title="黑名单拦截设置"
+        />
 </LinearLayout>

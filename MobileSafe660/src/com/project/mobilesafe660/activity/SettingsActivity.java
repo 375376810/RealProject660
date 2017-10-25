@@ -10,6 +10,7 @@ import android.view.View.OnClickListener;
 
 import com.project.mobilesafe660.R;
 import com.project.mobilesafe660.service.AddressService;
+import com.project.mobilesafe660.service.BlackNumberService;
 import com.project.mobilesafe660.utils.PrefUtils;
 import com.project.mobilesafe660.utils.ServiceStatusUtils;
 import com.project.mobilesafe660.view.SettingItemClickView;
@@ -21,6 +22,7 @@ public class SettingsActivity extends Activity {
 	// private SharedPreferences sp;
 	private SettingItemView sivAddress;
 	private SettingItemClickView sicStyle;
+	private SettingItemView sivBlackNumber;
 	private SettingItemClickView sicLocation;
 	private String[] mItems = new String[] { "半透明", "活力橙", "卫士蓝", "金属灰", "苹果绿" };
 
@@ -35,6 +37,33 @@ public class SettingsActivity extends Activity {
 		initAddress();
 		initAddressStyle();
 		initAddressLocation();
+		initBlackNumber();
+	}
+
+	// 黑名单设置
+	private void initBlackNumber() {
+		sivBlackNumber = (SettingItemView) findViewById(R.id.siv_black_number);
+		// 判断服务是否运行,运行时才勾选,否则不勾选
+		boolean serviceRunning = ServiceStatusUtils.isServiceRunning(
+				"com.project.mobilesafe660.service.BlackNumberService", this);
+		sivBlackNumber.setChecked(serviceRunning);
+		sivBlackNumber.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent service = new Intent(getApplicationContext(),
+						BlackNumberService.class);
+
+				if (sivBlackNumber.isChecked()) {
+					sivBlackNumber.setChecked(false);
+					// 关闭归属地显示服务
+					stopService(service);
+				} else {
+					sivBlackNumber.setChecked(true);
+					// 开启归属地显示服务
+					startService(service);
+				}
+			}
+		});
 	}
 
 	// 归属地弹窗位置改变
@@ -45,8 +74,9 @@ public class SettingsActivity extends Activity {
 		sicLocation.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//跳到位置修改的页面
-				startActivity(new Intent(getApplicationContext(),DragViewActivity.class));
+				// 跳到位置修改的页面
+				startActivity(new Intent(getApplicationContext(),
+						DragViewActivity.class));
 			}
 		});
 	}

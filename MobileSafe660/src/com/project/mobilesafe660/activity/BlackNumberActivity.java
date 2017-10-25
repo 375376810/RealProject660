@@ -2,21 +2,31 @@ package com.project.mobilesafe660.activity;
 
 import java.util.ArrayList;
 
+import android.R.integer;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.AbsListView;
 import android.widget.AbsListView.OnScrollListener;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.project.mobilesafe660.R;
 import com.project.mobilesafe660.db.dao.BlackNumberDao;
 import com.project.mobilesafe660.domain.BlackNumberInfo;
+import com.project.mobilesafe660.utils.Md5Utils;
+import com.project.mobilesafe660.utils.PrefUtils;
 import com.project.mobilesafe660.utils.ToastUtils;
 
 /**
@@ -170,7 +180,7 @@ public class BlackNumberActivity extends Activity {
 				System.out.println("重用view");
 			}
 			
-			BlackNumberInfo info = getItem(position);
+			final BlackNumberInfo info = getItem(position);
 			holder.tvNumber.setText(info.number);
 			switch (info.mode) {
 			case 1:
@@ -182,9 +192,17 @@ public class BlackNumberActivity extends Activity {
 			case 3:
 				holder.tvMode.setText("拦截全部");
 				break;
-			default:
-				break;
 			}
+			//给删除按钮添加点击事件
+			holder.ivDelete.setOnClickListener(new OnClickListener() {
+				@Override
+				public void onClick(View v) {
+					//1.从数据库删除2.从集合删除3.刷新listView
+					mDao.delete(info.number);
+					mList.remove(info);
+					mAdapter.notifyDataSetChanged();
+				}
+			});
 			
 			return view;
 		}
@@ -195,6 +213,62 @@ public class BlackNumberActivity extends Activity {
 		TextView tvNumber;
 		TextView tvMode ;
 		ImageView ivDelete ;
+	}
+	
+	/*添加黑名单*/
+	public void addBlackNumber(View v) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		final AlertDialog dialog = builder.create();
+		View view = View.inflate(this, R.layout.dialog_add_black_number, null);
+		dialog.setView(view, 0, 0, 0, 0);//将view布局对象设置给AlertDialog,并使布局padding上下左右为0
+		Button btnOk = (Button) view.findViewById(R.id.btn_ok);
+		Button btnCancel = (Button) view.findViewById(R.id.btn_cancel);
+		final EditText etBlackNumber = (EditText) view.findViewById(R.id.et_black_number);
+		final RadioGroup rgGroup = (RadioGroup) view.findViewById(R.id.rg_group);
+		//确定按钮点击事件
+		btnOk.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				String phone = etBlackNumber.getText().toString().trim();
+				if (!TextUtils.isEmpty(phone)) {
+					//获取当前被勾选的radiobutton的id
+					int id = rgGroup.getCheckedRadioButtonId();
+					int mode = 1;
+					switch (id) {
+					case R.id.rb_phone:
+						mode = 1;
+						break;
+					case R.id.rb_sms:
+						mode = 2;
+						break;
+					case R.id.rb_all:
+						mode = 3;
+						break;
+					}
+					//添加到数据库
+					mDao.add(phone, mode);
+					//给集合添加元素
+					BlackNumberInfo addInfo = new BlackNumberInfo();
+					addInfo.number = phone;
+					addInfo.mode = mode;
+					mList.add(0, addInfo);
+					//刷新界面
+					mAdapter.notifyDataSetChanged();
+					dialog.dismiss();
+				}else {
+					ToastUtils.showToast(getApplicationContext(), "输入内容不能为空");
+				}
+			}
+		});
+		//取消按钮点击事件
+		btnCancel.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				dialog.dismiss();
+			}
+		});
+		dialog.show();
+	
 	}
 
 }

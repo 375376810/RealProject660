@@ -1,6 +1,5 @@
 package com.project.mobilesafe660.service;
 
-import android.R.integer;
 import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
