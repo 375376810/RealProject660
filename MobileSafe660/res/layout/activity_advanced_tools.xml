@@ -20,5 +20,18 @@
         android:textColor="#000"
         android:textSize="19sp"
         android:text="电话归属地查询" />
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button"
+        android:padding="5dp"
+        android:drawableLeft="@drawable/ic_menu_camera"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:onClick="smsBackup"
+        android:textColor="#000"
+        android:textSize="19sp"
+        android:text="短信备份" />
 
 </LinearLayout>

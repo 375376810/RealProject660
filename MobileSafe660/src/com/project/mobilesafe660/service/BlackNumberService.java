@@ -7,6 +7,9 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.database.ContentObserver;
+import android.net.Uri;
+import android.os.Handler;
 import android.os.IBinder;
 import android.telephony.PhoneStateListener;
 import android.telephony.SmsMessage;
@@ -22,6 +25,7 @@ public class BlackNumberService extends Service {
 	private BlackNumberDao mDao;
 	private TelephonyManager mTM;
 	private MyListener mListener;
+	private MyObserver mObserver;
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -48,6 +52,7 @@ public class BlackNumberService extends Service {
 	
 	/* 来电监听  */
 	class MyListener extends PhoneStateListener {
+
 		@Override
 		public void onCallStateChanged(int state, String incomingNumber) {
 			super.onCallStateChanged(state, incomingNumber);
@@ -58,10 +63,32 @@ public class BlackNumberService extends Service {
 				if (mode==1||mode==3) {
 					//挂断电话
 					endCall();
+					mObserver = new MyObserver(new Handler(),incomingNumber);
+					//注册内容观察者
+					getContentResolver().registerContentObserver(Uri.parse("content://call_log/calls"), true, mObserver);
 				}
 				break;
 			}
 		}
+	}
+	
+	/* 内容观察者,用于监听系统何时增加了新的通话记录  */
+	class MyObserver extends ContentObserver{
+		private String number;
+		public MyObserver(Handler handler, String incomingNumber) {
+			super(handler);
+			number = incomingNumber;
+		}
+		//数据发生变化时,就会走到此方法中
+		@Override
+		public void onChange(boolean selfChange) {
+			super.onChange(selfChange);
+			System.out.println("通话记录发生变化了");
+			deleteCallLog(number);
+			//用完以后一定要注销
+			getContentResolver().unregisterContentObserver(mObserver);
+		}
+		
 	}
 	
 	@Override
@@ -75,6 +102,11 @@ public class BlackNumberService extends Service {
 		mListener = null;
 	}
 	
+	/* 删除通话记录 */
+	public void deleteCallLog(String number) {
+		getContentResolver().delete(Uri.parse("content://call_log/calls"), "number=?", new String[]{number});
+	}
+
 	/* 
 	 * 挂断电话逻辑 
 	 * 1.通过debug找到ContextImpl
