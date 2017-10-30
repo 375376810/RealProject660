@@ -87,17 +87,18 @@ containing a value of this type.
         public static final int ic_menu_camera=0x7f02001e;
         public static final int jiantou1_pressed=0x7f02001f;
         public static final int launcher_bg=0x7f020020;
-        public static final int listview_divider=0x7f020021;
-        public static final int lock=0x7f020022;
-        public static final int main_clean_icon=0x7f020023;
-        public static final int main_clean_icon_pressed=0x7f020024;
-        public static final int next=0x7f020025;
-        public static final int phone=0x7f020026;
-        public static final int previous=0x7f020027;
-        public static final int setup1=0x7f020028;
-        public static final int shape_rectangle_gray=0x7f020029;
-        public static final int txt_shape_selector=0x7f02002a;
-        public static final int unlock=0x7f02002b;
+        public static final int launcher_trojan=0x7f020021;
+        public static final int listview_divider=0x7f020022;
+        public static final int lock=0x7f020023;
+        public static final int main_clean_icon=0x7f020024;
+        public static final int main_clean_icon_pressed=0x7f020025;
+        public static final int next=0x7f020026;
+        public static final int phone=0x7f020027;
+        public static final int previous=0x7f020028;
+        public static final int setup1=0x7f020029;
+        public static final int shape_rectangle_gray=0x7f02002a;
+        public static final int txt_shape_selector=0x7f02002b;
+        public static final int unlock=0x7f02002c;
     }
     public static final class id {
         public static final int action_settings=0x7f0b0032;

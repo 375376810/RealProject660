@@ -17,11 +17,11 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.AssetManager;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -108,6 +108,7 @@ public class SplashActivity extends Activity {
 		rlRoot.startAnimation(animation);
 		//拷贝归属地db
 		copyDb("address.db");
+		installShortcut();
 	}
 
 	/** 检查服务器版本信息 **/
@@ -324,6 +325,27 @@ public class SplashActivity extends Activity {
 			}
 		}
 		System.out.println("成功将"+DbName+"文件拷贝至data/data目录");
+	}
+	
+	
+	/** 创建桌面快捷方式 **/
+	private void installShortcut(){
+		boolean isCreated = PrefUtils.getBoolean("is_shortcut_created", false, this);
+		if (!isCreated) {
+			//创建快捷方式
+			Intent intent = new Intent();
+			intent.setAction("com.android.launcher.action.INSTALL_SHORTCUT");
+			intent.putExtra(Intent.EXTRA_SHORTCUT_NAME, "手机卫士660");
+			intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, BitmapFactory.decodeResource(getResources(), R.drawable.launcher_trojan));
+			//打开本应用
+			Intent actionIntent = new Intent();
+			actionIntent.setAction("com.project.mobilesafe660.HOME");
+			//设置意图
+			intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, actionIntent);
+			//发广播
+			sendBroadcast(intent);			
+			PrefUtils.putBoolean("is_shortcut_created", true, this);
+		}
 	}
 	
 }

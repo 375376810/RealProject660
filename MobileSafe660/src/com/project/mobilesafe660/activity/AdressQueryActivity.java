@@ -16,7 +16,6 @@ import android.widget.TextView;
 
 import com.project.mobilesafe660.R;
 import com.project.mobilesafe660.db.dao.AddressDao;
-import com.project.mobilesafe660.utils.ToastUtils;
 
 public class AdressQueryActivity extends Activity {
 
