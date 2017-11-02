@@ -56,6 +56,10 @@ public class HomeActivity extends Activity {
 					//通讯卫士
 					startActivity(new Intent(getApplicationContext(),BlackNumberActivity.class));
 					break;
+				case 2:
+					//软件管理
+					startActivity(new Intent(getApplicationContext(),AppManagerActivity.class));
+					break;
 				case 7:
 					startActivity(new Intent(getApplicationContext(),AdvancedToolsActivity.class));
 					//高级工具

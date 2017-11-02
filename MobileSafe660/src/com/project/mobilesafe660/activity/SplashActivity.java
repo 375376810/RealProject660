@@ -108,6 +108,8 @@ public class SplashActivity extends Activity {
 		rlRoot.startAnimation(animation);
 		//拷贝归属地db
 		copyDb("address.db");
+		//拷贝常用号码数据库
+		copyDb("commonnum.db");
 		installShortcut();
 	}
 

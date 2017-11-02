@@ -61,5 +61,10 @@ public class AdvancedToolsActivity extends Activity {
 			ToastUtils.showToast(this , "sdcard不存在!");
 		}
 	}
+	
+	/*常用号码查询点击*/
+	public void commonNumberQuery(View view) {
+		startActivity(new Intent(this,CommonNumberActivity.class));
+	}
 
 }

@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project.mobilesafe660"
+    android:installLocation="preferExternal"
     android:versionCode="3"
     android:versionName="3.0" >
 
     <uses-sdk
         android:minSdkVersion="16"
         android:targetSdkVersion="16" />
-    
-      <instrumentation
+
+    <instrumentation
         android:name="android.test.InstrumentationTestRunner"
         android:targetPackage="com.project.mobilesafe660" />
 
@@ -38,6 +39,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <uses-library android:name="android.test.runner" />
+
         <activity
             android:name=".activity.SplashActivity"
             android:label="@string/app_name" >
@@ -47,15 +49,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity android:name=".activity.HomeActivity" >
             <intent-filter>
                 <action android:name="com.project.mobilesafe660.HOME" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
-        </activity>>
-        
-        
+        </activity>
+>
         <activity
             android:name=".activity.SettingsActivity"
             android:label="@string/title_activity_settings" >
@@ -119,9 +120,12 @@
             </intent-filter>
         </receiver>
 
+        <activity android:name=".activity.BlackNumberActivity" >
+        </activity>
+        <activity android:name=".activity.AppManagerActivity" >
+        </activity>
         <activity
-            android:name="com.project.mobilesafe660.activity.BlackNumberActivity"
-            android:label="@string/title_activity_black_number" >
+            android:name="com.project.mobilesafe660.activity.CommonNumberActivity" >
         </activity>
     </application>
 

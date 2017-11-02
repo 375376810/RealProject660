@@ -51,14 +51,13 @@ public class BlackNumberActivity extends Activity {
 	private ProgressBar bpLoading;
 	private int mIndex;//记录分页查询的位置
 	private boolean isLoading;//标记当前是否正在加载
-	private int mTotalCount;//黑名单总个数
+	//private int mTotalCount;//黑名单总个数
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_black_number);
 		mDao = BlackNumberDao.getInstence(this);
-		mTotalCount = mDao.getTotalCount();
 		lvList = (ListView) findViewById(R.id.lv_black_number);
 		//listView滑动监听
 		lvList.setOnScrollListener(new OnScrollListener() {
@@ -74,7 +73,8 @@ public class BlackNumberActivity extends Activity {
 						System.out.println("到底了");
 						//判断是否到最后一页
 						//获取数据库中数据的总个数,和当前集合中的个数进行对比
-						if (mList.size()<mTotalCount) {
+						int totalCount = mDao.getTotalCount();
+						if (mList.size()<totalCount) {
 							//重新加载,下一页数据
 							initData();							
 						} else {
