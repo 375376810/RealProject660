@@ -60,6 +60,10 @@ public class HomeActivity extends Activity {
 					//软件管理
 					startActivity(new Intent(getApplicationContext(),AppManagerActivity.class));
 					break;
+				case 3:
+					//进程管理
+					startActivity(new Intent(getApplicationContext(),ProcessManagerActivity.class));
+					break;
 				case 7:
 					startActivity(new Intent(getApplicationContext(),AdvancedToolsActivity.class));
 					//高级工具

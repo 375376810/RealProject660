@@ -18,5 +18,7 @@
     <string name="title_activity_black_number">BlackNumberActivity</string>
     <string name="title_activity_app_manager">AppManagerActivity</string>
     <string name="title_activity_common_number">CommonNumberActivity</string>
+    <string name="title_activity_process_manager">ProcessManagerActivity</string>
+    <string name="title_activity_process_setting">ProcessSettingActivity</string>
 
 </resources>
