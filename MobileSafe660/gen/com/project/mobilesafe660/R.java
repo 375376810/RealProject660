@@ -104,12 +104,16 @@ containing a value of this type.
         public static final int system_default=0x7f02002f;
         public static final int txt_shape_selector=0x7f020030;
         public static final int unlock=0x7f020031;
+        public static final int widget_bg_portrait=0x7f020032;
+        public static final int widget_bg_portrait_child=0x7f020033;
+        public static final int widget_bg_portrait_child_divider=0x7f020034;
     }
     public static final class id {
-        public static final int action_settings=0x7f0b0041;
+        public static final int action_settings=0x7f0b0044;
         public static final int bt_active_SuperAdmin=0x7f0b0022;
         public static final int bt_uninstal_SuperAdmin=0x7f0b0023;
         public static final int btn_cancel=0x7f0b0031;
+        public static final int btn_clear=0x7f0b0041;
         public static final int btn_ok=0x7f0b0030;
         public static final int btn_start=0x7f0b0001;
         public static final int button1=0x7f0b0009;
@@ -133,6 +137,7 @@ containing a value of this type.
         public static final int iv_lock=0x7f0b0014;
         public static final int iv_state_superAdmin=0x7f0b0025;
         public static final int ll_loading=0x7f0b0007;
+        public static final int ll_root=0x7f0b003f;
         public static final int lv_black_number=0x7f0b000a;
         public static final int lv_contact=0x7f0b000d;
         public static final int lv_list=0x7f0b0005;
@@ -150,8 +155,9 @@ containing a value of this type.
         public static final int siv_update=0x7f0b0019;
         public static final int textView1=0x7f0b0008;
         public static final int tv_address=0x7f0b002a;
+        public static final int tv_avail_memory=0x7f0b0040;
         public static final int tv_bottom=0x7f0b000f;
-        public static final int tv_desc=0x7f0b0040;
+        public static final int tv_desc=0x7f0b0043;
         public static final int tv_header=0x7f0b0006;
         public static final int tv_launch=0x7f0b003d;
         public static final int tv_location=0x7f0b0035;
@@ -169,7 +175,7 @@ containing a value of this type.
         public static final int tv_sdcard_available=0x7f0b0004;
         public static final int tv_share=0x7f0b003e;
         public static final int tv_state_superAdmin=0x7f0b0024;
-        public static final int tv_title=0x7f0b003f;
+        public static final int tv_title=0x7f0b0042;
         public static final int tv_top=0x7f0b000e;
         public static final int tv_uninstal=0x7f0b003c;
     }
@@ -195,15 +201,17 @@ containing a value of this type.
         public static final int dialog_add_black_number=0x7f030012;
         public static final int dialog_input_pwd=0x7f030013;
         public static final int dialog_set_pwd=0x7f030014;
-        public static final int list_item_appinfo=0x7f030015;
-        public static final int list_item_black_number=0x7f030016;
-        public static final int list_item_contact=0x7f030017;
-        public static final int list_item_header=0x7f030018;
-        public static final int list_item_home=0x7f030019;
-        public static final int list_item_processinfo=0x7f03001a;
-        public static final int popup_item_appinfo=0x7f03001b;
-        public static final int setting_item_click_view=0x7f03001c;
-        public static final int setting_item_view=0x7f03001d;
+        public static final int example_appwidget=0x7f030015;
+        public static final int list_item_appinfo=0x7f030016;
+        public static final int list_item_black_number=0x7f030017;
+        public static final int list_item_contact=0x7f030018;
+        public static final int list_item_header=0x7f030019;
+        public static final int list_item_home=0x7f03001a;
+        public static final int list_item_processinfo=0x7f03001b;
+        public static final int popup_item_appinfo=0x7f03001c;
+        public static final int process_widget=0x7f03001d;
+        public static final int setting_item_click_view=0x7f03001e;
+        public static final int setting_item_view=0x7f03001f;
     }
     public static final class menu {
         public static final int main=0x7f0a0000;
@@ -273,6 +281,7 @@ containing a value of this type.
     }
     public static final class xml {
         public static final int device_admin_sample=0x7f050000;
+        public static final int process_widget_provider=0x7f050001;
     }
     public static final class styleable {
         /** Attributes that can be used with a SettingItemView.

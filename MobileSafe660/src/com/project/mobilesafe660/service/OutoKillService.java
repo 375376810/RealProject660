@@ -1,5 +1,8 @@
 package com.project.mobilesafe660.service;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import com.project.mobilesafe660.engine.ProcessInfoProvider;
 
 import android.app.Service;
@@ -16,6 +19,7 @@ import android.os.IBinder;
 public class OutoKillService extends Service {
 
 	private InnerScreenOffReceiver mReceiver;
+	private Timer mTimer;
 
 	@Override
 	public IBinder onBind(Intent intent) {
@@ -29,6 +33,14 @@ public class OutoKillService extends Service {
 		mReceiver = new InnerScreenOffReceiver();
 		IntentFilter filter = new IntentFilter(Intent.ACTION_SCREEN_OFF);
 		registerReceiver(mReceiver, filter);
+		//定时清理,用到了timer
+		mTimer = new Timer();
+		mTimer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				System.out.println("定时清理功能,呵呵...");
+			}
+		},0, 5000);//每隔5秒执行一次
 	}
 
 	@Override
@@ -37,6 +49,9 @@ public class OutoKillService extends Service {
 		//注销广播
 		unregisterReceiver(mReceiver);
 		mReceiver = null;
+		//取消定时器
+		mTimer.cancel();
+		mTimer = null;
 	}
 	
 	/** 锁屏广播接收者 **/

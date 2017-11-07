@@ -244,8 +244,11 @@ public class ProcessManagerActivity extends Activity {
 			}
 			info.isChecked = true;
 		}
-		for (ProcessInfo info : mSystemList) {
-			info.isChecked = true;
+		Boolean isShowSystemProcess = PrefUtils.getBoolean("show_system_process", true, this);
+		if (isShowSystemProcess) {
+			for (ProcessInfo info : mSystemList) {
+				info.isChecked = true;
+			}
 		}
 		mAdapter.notifyDataSetChanged();
 	}
@@ -258,12 +261,13 @@ public class ProcessManagerActivity extends Activity {
 			}
 			info.isChecked = !info.isChecked;
 		}
-		for (ProcessInfo info : mSystemList) {
-			info.isChecked = !info.isChecked;
+		Boolean isShowSystemProcess = PrefUtils.getBoolean("show_system_process", true, this);
+		if (isShowSystemProcess) {
+			for (ProcessInfo info : mSystemList) {
+				info.isChecked = !info.isChecked;
+			}
 		}
 		mAdapter.notifyDataSetChanged();
-		
-		
 	}
 	//一键清理
 	public void killAll(View view){
@@ -277,13 +281,17 @@ public class ProcessManagerActivity extends Activity {
 				killedList.add(info);
 			}
 		}
-		for (ProcessInfo info : mSystemList) {
-			if (info.isChecked) {
-				am.killBackgroundProcesses(info.packageName);
-				//mSystemList.remove(info);集合在遍历的时候不能修改元素
-				killedList.add(info);
-			}
+		Boolean isShowSystemProcess = PrefUtils.getBoolean("show_system_process", true, this);
+		if (isShowSystemProcess) {
+			for (ProcessInfo info : mSystemList) {
+				if (info.isChecked) {
+					am.killBackgroundProcesses(info.packageName);
+					//mSystemList.remove(info);集合在遍历的时候不能修改元素
+					killedList.add(info);
+				}
+			}			
 		}
+		
 		for (ProcessInfo info : killedList) {
 			if (info.isUser) {
 				mUserList.remove(info);

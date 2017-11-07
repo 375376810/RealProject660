@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.project.mobilesafe660"
-    android:installLocation="preferExternal"
+    android:installLocation="internalOnly"
     android:versionCode="3"
     android:versionName="3.0" >
 
@@ -93,10 +93,25 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
+        <receiver android:name=".receiver.OneKeyClearProcessReceiver" >
+            <intent-filter>
+                <action android:name="com.project.mobilesafe660.ONE_KEY_CLEAR" />
+            </intent-filter>
+        </receiver>
         <receiver android:name=".receiver.SmsReceiver" >
             <intent-filter android:priority="2147483647" >
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
+        </receiver>
+        
+        <receiver android:name=".receiver.MyWidget" >
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@xml/process_widget_provider" />
         </receiver>
 
         <service android:name=".service.LocationService" >
@@ -106,6 +121,8 @@
         <service android:name=".service.BlackNumberService" >
         </service>
         <service android:name=".service.OutoKillService" >
+        </service>
+        <service android:name=".service.UpdateWidgetService" >
         </service>
 
         <receiver
@@ -130,8 +147,7 @@
         </activity>
         <activity android:name=".activity.ProcessManagerActivity" >
         </activity>
-        <activity
-            android:name="com.project.mobilesafe660.activity.ProcessSettingActivity" >
+        <activity android:name="com.project.mobilesafe660.activity.ProcessSettingActivity" >
         </activity>
     </application>
 
