@@ -66,5 +66,10 @@ public class AdvancedToolsActivity extends Activity {
 	public void commonNumberQuery(View view) {
 		startActivity(new Intent(this,CommonNumberActivity.class));
 	}
+	
+	/*³ÌÐòËøµã»÷*/
+	public void appLock(View view) {
+		startActivity(new Intent(this,AppLockActivity.class));		
+	}
 
 }

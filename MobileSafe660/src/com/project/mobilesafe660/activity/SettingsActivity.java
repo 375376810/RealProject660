@@ -11,6 +11,7 @@ import android.view.View.OnClickListener;
 import com.project.mobilesafe660.R;
 import com.project.mobilesafe660.service.AddressService;
 import com.project.mobilesafe660.service.BlackNumberService;
+import com.project.mobilesafe660.service.WatchDogService;
 import com.project.mobilesafe660.utils.PrefUtils;
 import com.project.mobilesafe660.utils.ServiceStatusUtils;
 import com.project.mobilesafe660.view.SettingItemClickView;
@@ -25,6 +26,7 @@ public class SettingsActivity extends Activity {
 	private SettingItemView sivBlackNumber;
 	private SettingItemClickView sicLocation;
 	private String[] mItems = new String[] { "半透明", "活力橙", "卫士蓝", "金属灰", "苹果绿" };
+	private SettingItemView sivAppLock;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,30 @@ public class SettingsActivity extends Activity {
 		initAddressStyle();
 		initAddressLocation();
 		initBlackNumber();
+		initAppLock();
+	}
+
+	/*程序锁初始化*/
+	private void initAppLock() {
+		sivAppLock = (SettingItemView) findViewById(R.id.siv_app_lock);
+		// 判断服务是否运行,运行时才勾选,否则不勾选
+		boolean serviceRunning = ServiceStatusUtils.isServiceRunning("com.project.mobilesafe660.service.WatchDogService", this);
+		sivAppLock.setChecked(serviceRunning);
+		sivAppLock.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent service = new Intent(getApplicationContext(),WatchDogService.class);
+				if (sivAppLock.isChecked()) {
+					sivAppLock.setChecked(false);
+					// 关闭看门狗服务
+					stopService(service);
+				} else {
+					sivAppLock.setChecked(true);
+					// 开启看门狗服务
+					startService(service);
+				}
+			}
+		});
 	}
 
 	// 黑名单设置
