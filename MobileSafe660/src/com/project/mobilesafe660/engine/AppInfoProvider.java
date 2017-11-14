@@ -34,8 +34,11 @@ public class AppInfoProvider {
 			String loadLabelName = applicationInfo.loadLabel(packageManager).toString();
 			//应用图标
 			Drawable loadIcon = applicationInfo.loadIcon(packageManager);
+			//当前应用的标识
+			int uid = applicationInfo.uid;
+			
 			//封装
-			info.name = loadLabelName;
+			info.name = loadLabelName + uid;
 			info.packageName = packageName;
 			info.icon = loadIcon;
 			//状态机,通过01状态来表示是否具备某些属性和功能

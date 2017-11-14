@@ -106,10 +106,10 @@ public class SplashActivity extends Activity {
 		AlphaAnimation animation = new AlphaAnimation(0.2f,1);
 		animation.setDuration(2000);
 		rlRoot.startAnimation(animation);
-		//拷贝归属地db
-		copyDb("address.db");
-		//拷贝常用号码数据库
-		copyDb("commonnum.db");
+		
+		copyDb("address.db");//拷贝归属地db
+		copyDb("commonnum.db");//拷贝常用号码数据库
+		copyDb("antivirus.db");//拷贝病毒库数据库
 		installShortcut();
 	}
 
@@ -295,7 +295,7 @@ public class SplashActivity extends Activity {
 		enterHome();
 	}
 
-	/** 将address.db文件拷贝至 data/data/目录 **/
+	/** 将项目数据库文件拷贝至手机data/data/目录 **/
 	private void copyDb(String DbName) {
 		InputStream in = null;
 		FileOutputStream out = null;

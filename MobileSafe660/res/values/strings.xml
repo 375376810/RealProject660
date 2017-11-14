@@ -22,5 +22,7 @@
     <string name="title_activity_process_setting">ProcessSettingActivity</string>
     <string name="title_activity_app_lock">AppLockActivity</string>
     <string name="title_activity_enter_pwd">EnterPwdActivity</string>
+    <string name="title_activity_traffic_stats">TrafficStatsActivity</string>
+    <string name="title_activity_anti_virus">AntiVirusActivity</string>
 
 </resources>

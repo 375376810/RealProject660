@@ -154,10 +154,13 @@
         <activity android:name=".activity.AppLockActivity" >
         </activity>
         <activity
-            android:name="com.project.mobilesafe660.activity.EnterPwdActivity"
-            android:launchMode="singleInstance"
+            android:name=".activity.EnterPwdActivity"
             android:excludeFromRecents="true"
-            >
+            android:launchMode="singleInstance" >
+        </activity>
+        <activity android:name=".activity.TrafficStatsActivity" >
+        </activity>
+        <activity android:name="com.project.mobilesafe660.activity.AntiVirusActivity" >
         </activity>
     </application>
 
