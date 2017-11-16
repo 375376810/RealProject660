@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" 
+    android:padding="5dp"
+    >
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:textSize="18sp"
+        android:textColor="#000"
+        android:singleLine="true"
+        android:layout_marginTop="3dp"
+        android:text="名称" />
+
+    <TextView
+        android:id="@+id/tv_cache_size"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_name"
+        android:layout_toRightOf="@+id/iv_icon"
+        android:textSize="16sp"
+        android:textColor="#000"
+        android:layout_marginTop="3dp"
+        android:text="0MB" />
+
+    <ImageView 
+        android:id="@+id/iv_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/btn_delete_selector"
+        />
+    
+</RelativeLayout>

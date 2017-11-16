@@ -24,5 +24,7 @@
     <string name="title_activity_enter_pwd">EnterPwdActivity</string>
     <string name="title_activity_traffic_stats">TrafficStatsActivity</string>
     <string name="title_activity_anti_virus">AntiVirusActivity</string>
+    <string name="title_activity_clean_cache">CleanCacheActivity</string>
+    <string name="title_activity_sdcard_cache">SdcardCacheActivity</string>
 
 </resources>

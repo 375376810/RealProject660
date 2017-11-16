@@ -76,6 +76,7 @@ public class AntiVirusActivity extends Activity {
 				} else {
 					ToastUtils.showToast(getApplicationContext(), "您的手机很安全,请放心使用");
 				}
+				break;
 			}
 		};
 	};
