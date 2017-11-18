@@ -148,6 +148,8 @@ public class CleanCacheActivity extends Activity {
 		public void onGetStatsCompleted(PackageStats pStats, boolean succeeded)
 				throws RemoteException {
 			long cacheSize = pStats.cacheSize;
+			//大于12KB被认为有缓存
+			//if (cacheSize>12288) {
 			if (cacheSize>0) {
 				//有缓存
 				CacheInfo info = new CacheInfo();

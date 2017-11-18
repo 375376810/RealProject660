@@ -74,7 +74,7 @@ public class HomeActivity extends Activity {
 					break;
 				case 6:
 					//ª∫¥Ê«Â¿Ì
-					startActivity(new Intent(getApplicationContext(),CleanCacheActivity.class));
+					startActivity(new Intent(getApplicationContext(),CacheTabActivity.class));
 					break;
 				case 7:
 					startActivity(new Intent(getApplicationContext(),AdvancedToolsActivity.class));

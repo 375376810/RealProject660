@@ -100,18 +100,18 @@
     <TextView
         style="@style/ContentStyle"
         android:drawableLeft="@android:drawable/star_big_on"
-        android:text="GPS追踪:#*location*#" />
+        android:text="GPS追踪:*#location#*" />
     <TextView
         style="@style/ContentStyle"
         android:drawableLeft="@android:drawable/star_big_on"
-        android:text="播放报警音乐:#*alarm*#" />
+        android:text="播放报警音乐:*#alarm#*" />
     <TextView
         style="@style/ContentStyle"
         android:drawableLeft="@android:drawable/star_big_on"
-        android:text="远程删除数据:#*wipedata*#" />
+        android:text="远程删除数据:*#wipedata#*" />
     <TextView
         style="@style/ContentStyle"
         android:drawableLeft="@android:drawable/star_big_on"
-        android:text="远程锁屏:#*lockscreen*#" />
+        android:text="远程锁屏:*#lockscreen#*" />
 
 </LinearLayout>

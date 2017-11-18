@@ -26,5 +26,6 @@
     <string name="title_activity_anti_virus">AntiVirusActivity</string>
     <string name="title_activity_clean_cache">CleanCacheActivity</string>
     <string name="title_activity_sdcard_cache">SdcardCacheActivity</string>
+    <string name="title_activity_cache_tab">CacheTabActivity</string>
 
 </resources>

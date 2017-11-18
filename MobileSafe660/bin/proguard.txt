@@ -1,0 +1,164 @@
+# view AndroidManifest.xml #generated:12
+-keep class android.test.InstrumentationTestRunner { <init>(...); }
+
+# view AndroidManifest.xml #generated:86
+-keep class com.project.mobilesafe660.activity.AdressQueryActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:82
+-keep class com.project.mobilesafe660.activity.AdvancedToolsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:166
+-keep class com.project.mobilesafe660.activity.AntiVirusActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:157
+-keep class com.project.mobilesafe660.activity.AppLockActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:149
+-keep class com.project.mobilesafe660.activity.AppManagerActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:147
+-keep class com.project.mobilesafe660.activity.BlackNumberActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:174
+-keep class com.project.mobilesafe660.activity.CacheTabActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:170
+-keep class com.project.mobilesafe660.activity.CleanCacheActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:151
+-keep class com.project.mobilesafe660.activity.CommonNumberActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:80
+-keep class com.project.mobilesafe660.activity.ContactActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:90
+-keep class com.project.mobilesafe660.activity.DragViewActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:159
+-keep class com.project.mobilesafe660.activity.EnterPwdActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:57
+-keep class com.project.mobilesafe660.activity.HomeActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:68
+-keep class com.project.mobilesafe660.activity.LostAndFindActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:153
+-keep class com.project.mobilesafe660.activity.ProcessManagerActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:155
+-keep class com.project.mobilesafe660.activity.ProcessSettingActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:172
+-keep class com.project.mobilesafe660.activity.SdcardCacheActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:64
+-keep class com.project.mobilesafe660.activity.SettingsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:72
+-keep class com.project.mobilesafe660.activity.Setup1Activity { <init>(...); }
+
+# view AndroidManifest.xml #generated:74
+-keep class com.project.mobilesafe660.activity.Setup2Activity { <init>(...); }
+
+# view AndroidManifest.xml #generated:76
+-keep class com.project.mobilesafe660.activity.Setup3Activity { <init>(...); }
+
+# view AndroidManifest.xml #generated:78
+-keep class com.project.mobilesafe660.activity.Setup4Activity { <init>(...); }
+
+# view AndroidManifest.xml #generated:48
+-keep class com.project.mobilesafe660.activity.SplashActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:164
+-keep class com.project.mobilesafe660.activity.TrafficStatsActivity { <init>(...); }
+
+# view AndroidManifest.xml #generated:40
+-keep class com.project.mobilesafe660.global.MyApplication { <init>(...); }
+
+# view AndroidManifest.xml #generated:95
+-keep class com.project.mobilesafe660.receiver.BootCompleteReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:110
+-keep class com.project.mobilesafe660.receiver.MyWidget { <init>(...); }
+
+# view AndroidManifest.xml #generated:100
+-keep class com.project.mobilesafe660.receiver.OneKeyClearProcessReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:105
+-keep class com.project.mobilesafe660.receiver.SmsReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:133
+-keep class com.project.mobilesafe660.receiver.SuperAdminReceiver { <init>(...); }
+
+# view AndroidManifest.xml #generated:122
+-keep class com.project.mobilesafe660.service.AddressService { <init>(...); }
+
+# view AndroidManifest.xml #generated:124
+-keep class com.project.mobilesafe660.service.BlackNumberService { <init>(...); }
+
+# view AndroidManifest.xml #generated:120
+-keep class com.project.mobilesafe660.service.LocationService { <init>(...); }
+
+# view AndroidManifest.xml #generated:126
+-keep class com.project.mobilesafe660.service.OutoKillService { <init>(...); }
+
+# view AndroidManifest.xml #generated:128
+-keep class com.project.mobilesafe660.service.UpdateWidgetService { <init>(...); }
+
+# view AndroidManifest.xml #generated:130
+-keep class com.project.mobilesafe660.service.WatchDogService { <init>(...); }
+
+# view res/layout/activity_settings.xml #generated:30
+# view res/layout/activity_settings.xml #generated:35
+-keep class com.project.mobilesafe660.view.SettingItemClickView { <init>(...); }
+
+# view res/layout/activity_settings.xml #generated:14
+# view res/layout/activity_settings.xml #generated:22
+# view res/layout/activity_settings.xml #generated:40
+# view res/layout/activity_settings.xml #generated:48
+# view res/layout/activity_setup2.xml #generated:21
+-keep class com.project.mobilesafe660.view.SettingItemView { <init>(...); }
+
+# onClick res/layout/activity_setup4.xml #generated:34
+-keepclassmembers class * { *** activeSuperAdmin(...); }
+
+# onClick res/layout/activity_black_number.xml #generated:23
+-keepclassmembers class * { *** addBlackNumber(...); }
+
+# onClick res/layout/activity_advanced_tools.xml #generated:11
+-keepclassmembers class * { *** addressQuery(...); }
+
+# onClick res/layout/activity_advanced_tools.xml #generated:50
+-keepclassmembers class * { *** appLock(...); }
+
+# onClick res/layout/activity_clean_cache.xml #generated:26
+-keepclassmembers class * { *** clearCache(...); }
+
+# onClick res/layout/activity_advanced_tools.xml #generated:24
+-keepclassmembers class * { *** commonNumberQuery(...); }
+
+# onClick res/layout/activity_process_manager.xml #generated:96
+-keepclassmembers class * { *** killAll(...); }
+
+# onClick res/layout/activity_lost_and_find.xml #generated:68
+-keepclassmembers class * { *** reSetup(...); }
+
+# onClick res/layout/activity_process_manager.xml #generated:88
+-keepclassmembers class * { *** reverseSelect(...); }
+
+# onClick res/layout/activity_process_manager.xml #generated:80
+-keepclassmembers class * { *** selectAll(...); }
+
+# onClick res/layout/activity_setup3.xml #generated:24
+-keepclassmembers class * { *** selectContact(...); }
+
+# onClick res/layout/activity_process_manager.xml #generated:104
+-keepclassmembers class * { *** setting(...); }
+
+# onClick res/layout/activity_advanced_tools.xml #generated:37
+-keepclassmembers class * { *** smsBackup(...); }
+
+# onClick res/layout/activity_setup4.xml #generated:42
+-keepclassmembers class * { *** uninstalSuperAdmin(...); }
+

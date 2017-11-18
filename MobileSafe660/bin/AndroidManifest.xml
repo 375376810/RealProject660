@@ -30,6 +30,7 @@
     <uses-permission android:name="android.permission.WRITE_CONTACTS" />
     <uses-permission android:name="android.permission.WRITE_CALL_LOG" />
     <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
     <uses-permission android:name="android.permission.WRITE_SMS" />
     <uses-permission android:name="android.permission.GET_PACKAGE_SIZE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
@@ -38,6 +39,7 @@
 
     <application
         android:allowBackup="true"
+        android:name="com.project.mobilesafe660.global.MyApplication"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
@@ -167,7 +169,9 @@
         </activity>
         <activity android:name=".activity.CleanCacheActivity" >
         </activity>
-        <activity android:name="com.project.mobilesafe660.activity.SdcardCacheActivity" >
+        <activity android:name=".activity.SdcardCacheActivity" >
+        </activity>
+        <activity android:name="com.project.mobilesafe660.activity.CacheTabActivity" >
         </activity>
     </application>
 
